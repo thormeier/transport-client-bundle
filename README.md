@@ -1,6 +1,8 @@
 ThormeierTransportClientBundle
 ==============================
 
+[![Build Status](https://travis-ci.org/thormeier/transport-client.png?branch=master)](https://travis-ci.org/thormeier/transport-client)
+
 ## Introduction
 
 This bundle provides simple access to the [OpenData Transport API](http://transport.opendata.ch/) in Symfony2. The Transport API provides Swiss public transport data, that is converted into instances of Doctrine-like entity classes within this bundle for further usage.
