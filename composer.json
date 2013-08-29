@@ -1,0 +1,19 @@
+{
+    "name": "thormeier/transport-client",
+    "version": "dev-master",
+    "type": "symfony-bundle",
+    "description": "Transport API Client Bundle for Symfony2",
+    "autoload": {
+        "psr-0": { "Thormeier\\TransportClientBundle": "" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.*",
+        "sensio/framework-extra-bundle": "2.*",
+        "sensio/distribution-bundle": "2.*",
+        "sensio/buzz-bundle": "dev-master",
+        "jms/serializer-bundle": "*"
+    },
+    "target-dir": "Thormeier/TransportClientBundle",
+    "minimum-stability": "dev"
+}

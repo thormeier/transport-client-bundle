@@ -1,0 +1,103 @@
+
+# --- Parameter definition
+parameters:
+    # Service class itself
+    transportclient.class.service: "Thormeier\TransportClientBundle\Service\Transport"
+    
+    # Repository classes injected into each other, only three of them are injected into the service class afterwards
+    transportclient.class.repository.checkpoint: "Thormeier\TransportClientBundle\Repository\CheckpointRepository"
+    transportclient.class.repository.connection: "Thormeier\TransportClientBundle\Repository\ConnectionRepository"
+    transportclient.class.repository.coordinate: "Thormeier\TransportClientBundle\Repository\CoordinateRepository"
+    transportclient.class.repository.journey: "Thormeier\TransportClientBundle\Repository\JourneyRepository"
+    transportclient.class.repository.location: "Thormeier\TransportClientBundle\Repository\\LocationRepository"
+    transportclient.class.repository.prognosis: "Thormeier\TransportClientBundle\Repository\\PrognosisRepository"
+    transportclient.class.repository.section: "Thormeier\TransportClientBundle\Repository\SectionRepository"
+    transportclient.class.repository.service: "Thormeier\TransportClientBundle\Repository\ServiceRepository"
+    transportclient.class.repository.stop: "Thormeier\TransportClientBundle\Repository\StopRepository"
+
+    # URL of the API that is to be called - this is a default value and can be overwritten
+    transportclient.api.url: "http://transport.opendata.ch/v1/"
+    
+    # Name of the first dimension of the returned JSON array that is to be parsed
+    transportclient.api.responsearray.key.connections: "connections"
+    transportclient.api.responsearray.key.locations: "stations"
+    transportclient.api.responsearray.key.stops: "stationboard"
+
+# --- Service definitions
+services:
+    # Definition of all repository classes, none of them needs to be public since there is no need to use them without the Transport Service
+    transport.repository.coordinate:
+        class: "%transportclient.class.repository.coordinate%"
+        public: false
+
+    transport.repository.prognosis:
+        class: "%transportclient.class.repository.prognosis%"
+        public: false
+
+    transport.repository.service:
+        class: "%transportclient.class.repository.service%"
+        public: false
+
+    transport.repository.location:
+        class: "%transportclient.class.repository.location%"
+        public: false
+        arguments:
+            browser: @Buzz
+            serializer: @Serializer
+            apiUrl: "%transportclient.api.url%"
+            reponseArrayKey: "%transportclient.api.responsearray.key.locations%"
+        calls: # Other repositories are injected via setter methods because of constructor in abstract class
+            - [setCoordinateRepository, [@transport.repository.coordinate]]
+
+    transport.repository.checkpoint:
+        class: "%transportclient.class.repository.checkpoint%"
+        public: false
+        arguments:
+            locationRepository: @transport.repository.location
+            prognosisRepository: @transport.repository.prognosis
+
+    transport.repository.journey:
+        class: "%transportclient.class.repository.journey%"
+        public: false
+        arguments:
+            checkpointRepository: @transport.repository.checkpoint
+            locationRepository: @transport.repository.location
+
+    transport.repository.stop:
+        class: "%transportclient.class.repository.stop%"
+        public: false
+        arguments:
+            browser: @Buzz
+            serializer: @Serializer
+            apiUrl: "%transportclient.api.url%"
+            reponseArrayKey: "%transportclient.api.responsearray.key.stops%"
+        calls: # Other repositories are injected via setter methods because of constructor in abstract class
+            - [setLocationRepository, [@transport.repository.location]]
+
+    transport.repository.section:
+        class: "%transportclient.class.repository.section%"
+        public: false
+        arguments:
+            checkpointRepository: @transport.repository.checkpoint
+            journeyRepository: @transport.repository.journey
+
+    transport.repository.connection:
+        class: "%transportclient.class.repository.connection%"
+        public: false
+        arguments:
+            browser: @Buzz
+            serializer: @Serializer
+            apiUrl: "%transportclient.api.url%"
+            reponseArrayKey: "%transportclient.api.responsearray.key.connections%"
+        calls: # Other repositories are injected via setter methods because of constructor in abstract class
+            - [setCheckpointRepository, [@transport.repository.checkpoint]]
+            - [setSectionRepository, [@transport.repository.section]]
+            - [setServiceRepository, [@transport.repository.service]]
+
+    # Definition of main service itself
+    transport.client:
+        class: "%transportclient.class.service%"
+        arguments: 
+            connectionRepository: @transport.repository.connection
+            locationRepository: @transport.repository.location
+            stopRepository: @transport.repository.stop

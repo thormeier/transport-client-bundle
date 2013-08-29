@@ -1,0 +1,4 @@
+framework:
+    secret:          secret
+    test: ~
+    validation:      { enable_annotations: true }
