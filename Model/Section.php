@@ -1,11 +1,11 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Journey;
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Journey;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
 
 /**
- * Entity class for sections
+ * Model class for sections
  *
  * As described in http://transport.opendata.ch/
  *
@@ -46,7 +46,7 @@ class Section
      *
      * @param Journey $journey
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Section
+     * @return \Thormeier\TransportClientBundle\Model\Section
      */
     public function setJourney(Journey $journey)
     {
@@ -58,7 +58,7 @@ class Section
     /**
      * Get journey
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function getJourney()
     {
@@ -70,7 +70,7 @@ class Section
      *
      * @param integer $walk
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Section
+     * @return \Thormeier\TransportClientBundle\Model\Section
      */
     public function setWalk($walk)
     {
@@ -94,7 +94,7 @@ class Section
      *
      * @param Checkpoint $departure
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Section
+     * @return \Thormeier\TransportClientBundle\Model\Section
      */
     public function setDeparture(Checkpoint $departure)
     {
@@ -106,7 +106,7 @@ class Section
     /**
      * Get departure
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function getDeparture()
     {
@@ -118,7 +118,7 @@ class Section
      *
      * @param Checkpoint $arrival
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Section
+     * @return \Thormeier\TransportClientBundle\Model\Section
      */
     public function setArrival(Checkpoint $arrival)
     {
@@ -130,7 +130,7 @@ class Section
     /**
      * Get arrival
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function getArrival()
     {

@@ -1,10 +1,10 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Connection;
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Section;
-use Thormeier\TransportClientBundle\Entity\Service;
+use Thormeier\TransportClientBundle\Model\Connection;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Section;
+use Thormeier\TransportClientBundle\Model\Service;
 
 /**
  * Unit test for the connection entity class
@@ -27,7 +27,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $result = $connection->getFrom();
         $this->assertEquals($tempCheckpoint, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $connection->setFrom($tempStdobj);
@@ -50,7 +50,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $result = $connection->getTo();
         $this->assertEquals($tempCheckpoint, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $connection->setTo($tempStdobj);
@@ -96,7 +96,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $result = $connection->getService();
         $this->assertEquals($tempService, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Service', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Service', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $connection->setService($tempStdobj);

@@ -1,9 +1,9 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Section;
-use Thormeier\TransportClientBundle\Entity\Journey;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Section;
+use Thormeier\TransportClientBundle\Model\Journey;
 
 /**
  * Unit test for the section entity class
@@ -23,7 +23,7 @@ class SectionTest extends \PHPUnit_Framework_TestCase
         $section = new Section;
 
         $section->setJourney($tempJourney);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Journey', $section->getJourney());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Journey', $section->getJourney());
         $this->assertEquals($tempJourney, $section->getJourney());
 
 
@@ -60,7 +60,7 @@ class SectionTest extends \PHPUnit_Framework_TestCase
         $section = new Section;
 
         $section->setDeparture($tempCheckpoint);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $section->getDeparture());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $section->getDeparture());
         $this->assertEquals($tempCheckpoint, $section->getDeparture());
 
 
@@ -82,7 +82,7 @@ class SectionTest extends \PHPUnit_Framework_TestCase
         $section = new Section;
 
         $section->setArrival($tempCheckpoint);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $section->getArrival());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $section->getArrival());
         $this->assertEquals($tempCheckpoint, $section->getArrival());
 
 

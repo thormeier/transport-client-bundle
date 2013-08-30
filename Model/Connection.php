@@ -1,14 +1,14 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Service;
-use Thormeier\TransportClientBundle\Entity\Section;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Service;
+use Thormeier\TransportClientBundle\Model\Section;
 
 use Thormeier\TransportClientBundle\Util\ArrayObjectHelper;
 
 /**
- * Entity class for connections
+ * Model class for connections
  *
  * As described in http://transport.opendata.ch/
  *
@@ -73,7 +73,7 @@ class Connection
     private $capacity2nd;
 
     /**
-     * Entity class for connections
+     * Model class for connections
      */
     public function __construct()
     {
@@ -86,7 +86,7 @@ class Connection
      *
      * @param Checkpoint $from
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setFrom(Checkpoint $from)
     {
@@ -98,7 +98,7 @@ class Connection
     /**
      * Get from
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function getFrom()
     {
@@ -110,7 +110,7 @@ class Connection
      *
      * @param Checkpoint $to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setTo(Checkpoint $to)
     {
@@ -122,7 +122,7 @@ class Connection
     /**
      * Get to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function getTo()
     {
@@ -134,7 +134,7 @@ class Connection
      *
      * @param \DateInterval $duration
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setDuration(\DateInterval $duration)
     {
@@ -158,7 +158,7 @@ class Connection
      *
      * @param Service $service
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setService(Service $service)
     {
@@ -170,7 +170,7 @@ class Connection
     /**
      * Get service
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Service
+     * @return \Thormeier\TransportClientBundle\Model\Service
      */
     public function getService()
     {
@@ -182,7 +182,7 @@ class Connection
      *
      * @param string $product
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function addProduct($product)
     {
@@ -196,7 +196,7 @@ class Connection
      *
      * @param string $product
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function removeProduct($product)
     {
@@ -220,7 +220,7 @@ class Connection
      *
      * @param Section $section
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function addSection($section)
     {
@@ -234,7 +234,7 @@ class Connection
      *
      * @param Section $section
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function removeSection($section)
     {
@@ -258,7 +258,7 @@ class Connection
      *
      * @param integer $capacity1st
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setCapacity1st($capacity1st)
     {
@@ -282,7 +282,7 @@ class Connection
      *
      * @param integer $capacity2nd
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Connection
+     * @return \Thormeier\TransportClientBundle\Model\Connection
      */
     public function setCapacity2nd($capacity2nd)
     {

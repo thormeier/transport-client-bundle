@@ -1,7 +1,7 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Service;
+use Thormeier\TransportClientBundle\Model\Service;
 
 /**
  * Unit test for the service entity class

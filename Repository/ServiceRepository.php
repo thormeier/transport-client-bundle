@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Service;
+use Thormeier\TransportClientBundle\Model\Service;
 
 /**
  * Service repository class

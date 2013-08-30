@@ -3,8 +3,8 @@ namespace Thormeier\TransportClientBundle\Repository;
 
 use Thormeier\TransportClientBundle\Exception\InsufficientParametersException;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Connection;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Connection;
 
 use Thormeier\TransportClientBundle\Repository\CheckpointRepository;
 use Thormeier\TransportClientBundle\Repository\SectionRepository;

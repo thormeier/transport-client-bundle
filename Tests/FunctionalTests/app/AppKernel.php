@@ -19,7 +19,6 @@ class AppKernel extends Kernel
         $bundles = array(
             // Dependencies
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle,
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle,
             new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
 

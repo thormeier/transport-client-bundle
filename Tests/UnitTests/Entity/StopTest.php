@@ -1,8 +1,8 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Stop;
-use Thormeier\TransportClientBundle\Entity\Location;
+use Thormeier\TransportClientBundle\Model\Stop;
+use Thormeier\TransportClientBundle\Model\Location;
 
 /**
  * Unit test for the stop entity class
@@ -25,7 +25,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
 
         $result = $stop->getStation();
         $this->assertEquals($tempLocation, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $stop->setStation($tempStdobj);
@@ -63,7 +63,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
 
         $result = $stop->getTo();
         $this->assertEquals($tempLocation, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $stop->setTo($tempStdobj);

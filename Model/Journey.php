@@ -1,13 +1,13 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Location;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Location;
 
 use Thormeier\TransportClientBundle\Util\ArrayObjectHelper;
 
 /**
- * Entity class for journeys
+ * Model class for journeys
  *
  * As described in http://transport.opendata.ch/
  *
@@ -72,7 +72,7 @@ class Journey
     private $capacity2nd;
 
     /**
-     * Entity class for journes
+     * Model class for journes
      */
     public function __construct()
     {
@@ -84,7 +84,7 @@ class Journey
      *
      * @param string $name
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setName($name)
     {
@@ -108,7 +108,7 @@ class Journey
      *
      * @param string $category
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setCategory($category)
     {
@@ -132,7 +132,7 @@ class Journey
      *
      * @param integer $number
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setNumber($number)
     {
@@ -156,7 +156,7 @@ class Journey
      *
      * @param string $operator
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setOperator($operator)
     {
@@ -180,7 +180,7 @@ class Journey
      *
      * @param Location $to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setTo(Location $to)
     {
@@ -192,7 +192,7 @@ class Journey
     /**
      * Get to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function getTo()
     {
@@ -204,7 +204,7 @@ class Journey
      *
      * @param Checkpoint $pass
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function addPass(Checkpoint $pass)
     {
@@ -218,7 +218,7 @@ class Journey
      *
      * @param Checkpoint $pass
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function removePass(Checkpoint $pass)
     {
@@ -242,7 +242,7 @@ class Journey
      *
      * @param integer $capacity1st
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setCapacity1st($capacity1st)
     {
@@ -266,7 +266,7 @@ class Journey
      *
      * @param integer $capacity2nd
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Journey
+     * @return \Thormeier\TransportClientBundle\Model\Journey
      */
     public function setCapacity2nd($capacity2nd)
     {

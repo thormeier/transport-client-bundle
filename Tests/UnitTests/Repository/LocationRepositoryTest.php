@@ -3,7 +3,7 @@ namespace Thormeier\TransportClientBundle\Tests\UnitTests\Repository;
 
 use Thormeier\TransportClientBundle\Repository\LocationRepository;
 
-use Thormeier\TransportClientBundle\Entity\Coordinate;
+use Thormeier\TransportClientBundle\Model\Coordinate;
 
 /**
  * Unit test for the location repository class
@@ -97,9 +97,9 @@ class LocationRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->locationRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Coordinate', $result->getCoordinate());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Coordinate', $result->getCoordinate());
         $this->assertEquals($data['distance'], $result->getDistance());
         $this->assertEquals($data['id'], $result->getId());
         $this->assertEquals($data['name'], $result->getName());
