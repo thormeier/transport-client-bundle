@@ -37,7 +37,7 @@ class TransportTest extends WebTestCase
 
         $this->assertInternalType('array', $result);
         $this->assertCount(1, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result[0]);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result[0]);
     }
 
     /**
@@ -48,7 +48,7 @@ class TransportTest extends WebTestCase
         $result = $this->transport->getLocations(array('query' => 'hausen'));
 
         $this->assertInternalType('array', $result);
-        $this->assertContainsOnly('Thormeier\TransportClientBundle\Entity\Location', $result);
+        $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Location', $result);
     }
 
     /**
@@ -59,7 +59,7 @@ class TransportTest extends WebTestCase
         $result = $this->transport->getConnections(array('from' => 'Lenzburg', 'to' => 'Zürich'));
 
         $this->assertInternalType('array', $result);
-        $this->assertContainsOnly('Thormeier\TransportClientBundle\Entity\Connection', $result);
+        $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Connection', $result);
     }
 
     /**
@@ -70,6 +70,6 @@ class TransportTest extends WebTestCase
         $result = $this->transport->getStationboard(array('station' => 'Lenzburg'));
 
         $this->assertInternalType('array', $result);
-        $this->assertContainsOnly('Thormeier\TransportClientBundle\Entity\Stop', $result);
+        $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Stop', $result);
     }
 }

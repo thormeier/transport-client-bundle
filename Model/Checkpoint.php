@@ -1,11 +1,11 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Prognosis;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Prognosis;
 
 /**
- * Entity class for checkoints
+ * Model class for checkoints
  *
  * As described in http://transport.opendata.ch/
  *
@@ -60,7 +60,7 @@ class Checkpoint
      *
      * @param Location $station
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setStation(Location $station)
     {
@@ -84,7 +84,7 @@ class Checkpoint
      *
      * @param \DateTime $arrival
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setArrival(\DateTime $arrival)
     {
@@ -108,7 +108,7 @@ class Checkpoint
      *
      * @param \DateTime $departure
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setDeparture(\DateTime $departure)
     {
@@ -132,7 +132,7 @@ class Checkpoint
      *
      * @param integer $delay
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setDelay($delay)
     {
@@ -156,7 +156,7 @@ class Checkpoint
      *
      * @param integer $platform
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setPlatform($platform)
     {
@@ -180,7 +180,7 @@ class Checkpoint
      *
      * @param Prognosis $prognosis
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Checkpoint
+     * @return \Thormeier\TransportClientBundle\Model\Checkpoint
      */
     public function setPrognosis(Prognosis $prognosis)
     {
@@ -192,7 +192,7 @@ class Checkpoint
     /**
      * Get prognosis
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function getPrognosis()
     {

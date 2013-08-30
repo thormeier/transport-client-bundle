@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Coordinate;
+use Thormeier\TransportClientBundle\Model\Coordinate;
 
 /**
  * Coordinate repository class

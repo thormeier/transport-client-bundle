@@ -1,8 +1,8 @@
 <?php
 namespace Thormeier\TransportClientBundle\Tests\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Prognosis;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Prognosis;
 
 use Thormeier\TransportClientBundle\Repository\CheckpointRepository;
 use Thormeier\TransportClientBundle\Repository\LocationRepository;
@@ -75,9 +75,9 @@ class CheckpointRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->checkpointRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result->getStation());
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Prognosis', $result->getPrognosis());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result->getStation());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Prognosis', $result->getPrognosis());
         $this->assertInstanceOf('DateTime', $result->getArrival());
         $this->assertInstanceOf('DateTime', $result->getDeparture());
 

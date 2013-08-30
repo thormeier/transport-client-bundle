@@ -1,8 +1,8 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
 /**
- * Entity class for prognosis
+ * Model class for prognosis
  *
  * As described in http://transport.opendata.ch/
  *
@@ -50,7 +50,7 @@ class Prognosis
      *
      * @param integer $platform
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function setPlatform($platform)
     {
@@ -74,7 +74,7 @@ class Prognosis
      *
      * @param \DateTime $departure
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function setDeparture(\DateTime $departure)
     {
@@ -98,7 +98,7 @@ class Prognosis
      *
      * @param \DateTime $arrival
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function setArrival(\DateTime $arrival)
     {
@@ -122,7 +122,7 @@ class Prognosis
      *
      * @param integer $capacity1st
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function setCapacity1st($capacity1st)
     {
@@ -146,7 +146,7 @@ class Prognosis
      *
      * @param unknown $capacity2nd
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Prognosis
+     * @return \Thormeier\TransportClientBundle\Model\Prognosis
      */
     public function setCapacity2nd($capacity2nd)
     {

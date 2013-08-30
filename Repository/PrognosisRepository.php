@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Prognosis;
+use Thormeier\TransportClientBundle\Model\Prognosis;
 
 /**
  * PRognosis repository class

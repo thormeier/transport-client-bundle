@@ -1,10 +1,10 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Location;
+use Thormeier\TransportClientBundle\Model\Location;
 
 /**
- * Entity class for stops
+ * Model class for stops
  *
  * As described in http://transport.opendata.ch/
  *
@@ -59,7 +59,7 @@ class Stop
      *
      * @param Location $station
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setStation(Location $station)
     {
@@ -71,7 +71,7 @@ class Stop
     /**
      * Get station
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function getStation()
     {
@@ -83,7 +83,7 @@ class Stop
      *
      * @param string $name
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setName($name)
     {
@@ -107,7 +107,7 @@ class Stop
      *
      * @param string $category
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setCategory($category)
     {
@@ -131,7 +131,7 @@ class Stop
      *
      * @param integer $number
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setNumber($number)
     {
@@ -155,7 +155,7 @@ class Stop
      *
      * @param string $operator
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setOperator($operator)
     {
@@ -179,7 +179,7 @@ class Stop
      *
      * @param Location $to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Stop
+     * @return \Thormeier\TransportClientBundle\Model\Stop
      */
     public function setTo(Location $to)
     {
@@ -191,7 +191,7 @@ class Stop
     /**
      * Get to
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function getTo()
     {

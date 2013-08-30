@@ -1,8 +1,8 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Coordinate;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Coordinate;
 
 /**
  * Unit test for the location entity class
@@ -98,7 +98,7 @@ class LocationTest extends \PHPUnit_Framework_TestCase
 
         $location->setCoordinate($tempCoordinate);
         $result = $location->getCoordinate();
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Coordinate', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Coordinate', $result);
         $this->assertEquals($tempCoordinate, $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');

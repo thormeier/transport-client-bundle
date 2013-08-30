@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Tests\UnitTests\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Location;
+use Thormeier\TransportClientBundle\Model\Location;
 
 use Thormeier\TransportClientBundle\Repository\StopRepository;
 
@@ -66,10 +66,10 @@ class StopRepositoryTest extends \PHPUnit_FrameWork_TestCase
 
         $result = $this->stopRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Stop', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Stop', $result);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result->getStation());
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result->getTo());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result->getStation());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result->getTo());
 
         $this->assertEquals($data['category'], $result->getCategory());
         $this->assertEquals($data['name'], $result->getName());

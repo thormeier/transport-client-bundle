@@ -38,7 +38,7 @@ class PrognosisRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->prognosisRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Prognosis', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Prognosis', $result);
 
         $this->assertEquals($result->getArrival(), new \DateTime($data['arrival']));
         $this->assertInstanceOf('\DateTime', $result->getArrival());
