@@ -1,5 +1,5 @@
 {
-    "name": "thormeier/transport-client",
+    "name": "thormeier/transport-bundle",
     "type": "symfony-bundle",
     "description": "Transport API Client Bundle for Symfony2",
     "license": "MIT",
