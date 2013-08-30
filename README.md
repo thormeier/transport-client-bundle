@@ -19,17 +19,17 @@ This bundle provides a new `transport.client` service that returns an instance o
 
 Add the Github repository to your `composer.json`:
 
-	{
-	    "repositories": [
-	        {
-	            "type": "vcs",
-	            "url": "https://github.com/thormeier/transport-client"
-	        }
-	    ],
-	    "require": {
-	        "thormeier/transport-client": "dev-master"
-	    }
-	}
+    {
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/thormeier/transport-client"
+            }
+        ],
+        "require": {
+            "thormeier/transport-client": "dev-master"
+        }
+    }
 
 ### Step2: Enable the bundle in the kernel
 
