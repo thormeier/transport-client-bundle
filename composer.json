@@ -3,6 +3,7 @@
     "version": "dev-master",
     "type": "symfony-bundle",
     "description": "Transport API Client Bundle for Symfony2",
+    "license": "MIT",
     "autoload": {
         "psr-0": { "Thormeier\\TransportClientBundle": "" }
     },
