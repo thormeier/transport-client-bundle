@@ -1,4 +1,8 @@
 framework:
-    secret:          secret
-    test: ~
-    validation:      { enable_annotations: true }
+    secret:     secret
+    test:       ~
+    validation: { enable_annotations: true }
+
+# Replace actual API URL with URL of local instance for functional tests
+parameters:
+    transportclient.api.url: "http://localhost/opendatatransportapi/web/api.php/v1/"
