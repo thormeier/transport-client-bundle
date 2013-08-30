@@ -5,4 +5,4 @@ framework:
 
 # Replace actual API URL with URL of local instance for functional tests
 parameters:
-    transportclient.api.url: "http://localhost/opendatatransportapi/web/api.php/v1/"
+    transportclient.api.url: "http://localhost/thormeier/opendatatransportapi/web/api.php/v1/"
