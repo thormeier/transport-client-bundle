@@ -1,10 +1,10 @@
 <?php
 namespace Thormeier\TransportClientBundle\Tests\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Section;
-use Thormeier\TransportClientBundle\Entity\Service;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Section;
+use Thormeier\TransportClientBundle\Model\Service;
 
 use Thormeier\TransportClientBundle\Repository\CheckpointRepository;
 use Thormeier\TransportClientBundle\Repository\ConnectionRepository;
@@ -114,10 +114,10 @@ class ConnectionRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->connectionRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Connection', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Connection', $result);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result->getFrom());
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result->getTo());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result->getFrom());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result->getTo());
 
         $this->assertEquals($result->getCapacity1st(), $data['capacity1st']);
         $this->assertEquals($result->getCapacity2nd(), $data['capacity2nd']);
@@ -126,9 +126,9 @@ class ConnectionRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(2, $result->getProduct());
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Service', $result->getService());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Service', $result->getService());
 
-        $this->assertContainsOnly('Thormeier\TransportClientBundle\Entity\Section', $result->getSection());
+        $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Section', $result->getSection());
         $this->assertCount(2, $result->getSection());
     }
 

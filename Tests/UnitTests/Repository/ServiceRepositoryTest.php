@@ -35,7 +35,7 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->serviceRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Service', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Service', $result);
         $this->assertEquals($data['regular'], $result->getRegular());
         $this->assertEquals($data['irregular'], $result->getIrregular());
     }

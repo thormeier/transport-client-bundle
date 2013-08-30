@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
 
 use Thormeier\TransportClientBundle\Repository\LocationRepository;
 use Thormeier\TransportClientBundle\Repository\PrognosisRepository;

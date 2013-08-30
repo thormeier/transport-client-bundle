@@ -1,8 +1,8 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
 /**
- * Entity class for services
+ * Model class for services
  *
  * As described in http://transport.opendata.ch/
  *
@@ -29,7 +29,7 @@ class Service
      *
      * @param string $regular
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Service
+     * @return \Thormeier\TransportClientBundle\Model\Service
      */
     public function setRegular($regular)
     {
@@ -53,7 +53,7 @@ class Service
      *
      * @param string $irregular
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Service
+     * @return \Thormeier\TransportClientBundle\Model\Service
      */
     public function setIrregular($irregular)
     {

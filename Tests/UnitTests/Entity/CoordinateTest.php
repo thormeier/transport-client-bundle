@@ -1,7 +1,7 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Coordinate;
+use Thormeier\TransportClientBundle\Model\Coordinate;
 
 /**
  * Unit test for the coordinate entity class

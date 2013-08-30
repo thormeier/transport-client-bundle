@@ -1,9 +1,9 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Prognosis;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Prognosis;
 
 use Buzz\Browser;
 
@@ -28,7 +28,7 @@ class CheckpointTest extends \PHPUnit_Framework_TestCase
 
         $result = $checkpoint->getStation();
         $this->assertEquals($tempStation, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $checkpoint->setStation($tempStdobj);
@@ -127,7 +127,7 @@ class CheckpointTest extends \PHPUnit_Framework_TestCase
 
         $result = $checkpoint->getPrognosis();
         $this->assertEquals($tempPrognosis, $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Prognosis', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Prognosis', $result);
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $checkpoint->setPrognosis($tempStdobj);

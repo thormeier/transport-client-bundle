@@ -1,10 +1,10 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
-use Thormeier\TransportClientBundle\Entity\Coordinate;
+use Thormeier\TransportClientBundle\Model\Coordinate;
 
 /**
- * Entity class for locations
+ * Model class for locations
  *
  * As described in http://transport.opendata.ch/
  *
@@ -59,7 +59,7 @@ class Location
      *
      * @param integer $id
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setId($id)
     {
@@ -83,7 +83,7 @@ class Location
      *
      * @param string $type
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setType($type)
     {
@@ -107,7 +107,7 @@ class Location
      *
      * @param string $name
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setName($name)
     {
@@ -131,7 +131,7 @@ class Location
      *
      * @param float $score
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setScore($score)
     {
@@ -155,7 +155,7 @@ class Location
      *
      * @param Coordinate $coordinate
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setCoordinate(Coordinate $coordinate)
     {
@@ -167,7 +167,7 @@ class Location
     /**
      * Get Coordinate
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Coordinate
+     * @return \Thormeier\TransportClientBundle\Model\Coordinate
      */
     public function getCoordinate()
     {
@@ -179,7 +179,7 @@ class Location
      *
      * @param integer $distance
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Location
+     * @return \Thormeier\TransportClientBundle\Model\Location
      */
     public function setDistance($distance)
     {

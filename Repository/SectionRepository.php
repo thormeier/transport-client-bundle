@@ -1,7 +1,7 @@
 <?php
 namespace Thormeier\TransportClientBundle\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Section;
+use Thormeier\TransportClientBundle\Model\Section;
 
 use Thormeier\TransportClientBundle\Repository\CheckpointRepository;
 use Thormeier\TransportClientBundle\Repository\JourneyRepository;

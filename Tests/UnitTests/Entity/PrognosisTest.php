@@ -1,7 +1,7 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Prognosis;
+use Thormeier\TransportClientBundle\Model\Prognosis;
 
 /**
  * Unit test for the prognosis entity class

@@ -25,7 +25,7 @@ class CoordinateRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $coordinateRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Coordinate', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Coordinate', $result);
         $this->assertEquals($result->getX(), $data['x']);
         $this->assertEquals($result->getY(), $data['y']);
         $this->assertEquals($result->getTYpe(), $data['type']);

@@ -15,7 +15,7 @@ interface RepositoryInterface
      *
      * @return ambigious
      *
-     * @return ambigious Entity instance of respective repository with nested entities of other types
+     * @return ambigious Model instance of respective repository with nested entities of other types
      */
     public function setUp(array $data);
 }

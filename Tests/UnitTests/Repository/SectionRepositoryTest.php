@@ -1,8 +1,8 @@
 <?php
 namespace Thormeier\TransportClientBundle\Tests\UnitTests\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Journey;
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Journey;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
 
 use Thormeier\TransportClientBundle\Repository\SectionRepository;
 
@@ -62,10 +62,10 @@ class SectionRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->sectionRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Section', $result);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Journey', $result->getJourney());
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result->getDeparture());
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Checkpoint', $result->getArrival());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Section', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Journey', $result->getJourney());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result->getDeparture());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Checkpoint', $result->getArrival());
         $this->assertEquals($data['walk'], $result->getWalk());
     }
 

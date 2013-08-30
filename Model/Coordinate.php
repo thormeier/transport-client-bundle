@@ -1,8 +1,8 @@
 <?php
-namespace Thormeier\TransportClientBundle\Entity;
+namespace Thormeier\TransportClientBundle\Model;
 
 /**
- * Entity class for coordinates
+ * Model class for coordinates
  *
  * As described in http://transport.opendata.ch/
  *
@@ -36,7 +36,7 @@ class Coordinate
      *
      * @param string $type
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Coordinate
+     * @return \Thormeier\TransportClientBundle\Model\Coordinate
      */
     public function setType($type)
     {
@@ -48,7 +48,7 @@ class Coordinate
     /**
      * Get type
      *
-     * @return \Thormeier\TransportClientBundle\Entity\unknown
+     * @return \Thormeier\TransportClientBundle\Model\unknown
      */
     public function getType()
     {
@@ -60,7 +60,7 @@ class Coordinate
      *
      * @param float $x
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Coordinate
+     * @return \Thormeier\TransportClientBundle\Model\Coordinate
      */
     public function setX($x)
     {
@@ -84,7 +84,7 @@ class Coordinate
      *
      * @param float $y
      *
-     * @return \Thormeier\TransportClientBundle\Entity\Coordinate
+     * @return \Thormeier\TransportClientBundle\Model\Coordinate
      */
     public function setY($y)
     {
@@ -96,7 +96,7 @@ class Coordinate
     /**
      * Get longitude
      *
-     * @return \Thormeier\TransportClientBundle\Entity\unknown
+     * @return \Thormeier\TransportClientBundle\Model\unknown
      */
     public function getY()
     {

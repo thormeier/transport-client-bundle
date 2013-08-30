@@ -1,9 +1,9 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\UnitTests\Entity;
+namespace Thormeier\TransportClientBundle\Tests\UnitTests\Model;
 
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
-use Thormeier\TransportClientBundle\Entity\Journey;
-use Thormeier\TransportClientBundle\Entity\Location;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Journey;
+use Thormeier\TransportClientBundle\Model\Location;
 
 /**
  * Unit test for the journey entity class
@@ -84,7 +84,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
 
         $journey->setTo($location);
         $this->assertEquals($journey->getTo(), $location);
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $journey->getTo());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $journey->getTo());
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $journey->setTo($stdObj);

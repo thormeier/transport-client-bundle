@@ -1,8 +1,8 @@
 <?php
 namespace Thormeier\TransportClientBundle\Tests\Repository;
 
-use Thormeier\TransportClientBundle\Entity\Location;
-use Thormeier\TransportClientBundle\Entity\Checkpoint;
+use Thormeier\TransportClientBundle\Model\Location;
+use Thormeier\TransportClientBundle\Model\Checkpoint;
 
 use Thormeier\TransportClientBundle\Repository\JourneyRepository;
 
@@ -70,9 +70,9 @@ class JourneyRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->journeyRepository->setUp($data);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Journey', $result);
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Journey', $result);
 
-        $this->assertInstanceOf('Thormeier\TransportClientBundle\Entity\Location', $result->getTo());
+        $this->assertInstanceOf('Thormeier\TransportClientBundle\Model\Location', $result->getTo());
         $this->assertEquals($data['capacity1st'], $result->getCapacity1st());
         $this->assertEquals($data['capacity2nd'], $result->getCapacity2nd());
         $this->assertEquals($data['category'], $result->getCategory());
@@ -82,7 +82,7 @@ class JourneyRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('ArrayObject', $result->getPassList());
         $this->assertCount(3, $result->getPassList());
-        $this->assertContainsOnly('Thormeier\TransportClientBundle\Entity\Checkpoint', $result->getPassList());
+        $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Checkpoint', $result->getPassList());
     }
 
     /**
