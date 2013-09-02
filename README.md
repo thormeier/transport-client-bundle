@@ -1,7 +1,7 @@
 ThormeierTransportClientBundle
 ==============================
 
-[![Build Status](https://travis-ci.org/thormeier/transport-client.png?branch=master)](https://travis-ci.org/thormeier/transport-client)
+[![Build Status](https://travis-ci.org/thormeier/transport-client-bundle.png?branch=master)](https://travis-ci.org/thormeier/transport-client)
 
 ## Introduction
 
@@ -17,7 +17,7 @@ This bundle provides a new `transport.client` service that returns an instance o
 
 ### Step 1: Composer require
 
-    $ php composer.phar require "thormeier/transport-bundle":"dev-master"
+    $ php composer.phar require "thormeier/transport-bundle":"1.0.1"
 
 ### Step2: Enable the bundle in the kernel
 
