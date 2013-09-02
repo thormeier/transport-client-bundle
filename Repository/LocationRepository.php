@@ -95,9 +95,7 @@ class LocationRepository extends ApiAwareRepository
         $usedParams = array();
 
         // Set up query parameter
-        if (isset($params['query'])) {
-            $usedParams['query'] = $params['query'];
-        } else {
+        if (empty($params['query'])) {
             throw new InsufficientParametersException(
                 sprintf(
                     InsufficientParametersException::MESSAGE,
@@ -106,6 +104,7 @@ class LocationRepository extends ApiAwareRepository
                 )
             );
         }
+        $usedParams['query'] = $params['query'];
 
         // Set up location parameters
         if (isset($params['coordinate']) && $params['coordinate'] instanceof Coordinate) {

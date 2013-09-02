@@ -128,13 +128,7 @@ class StopRepository extends ApiAwareRepository
     {
         $usedParams = array();
 
-        if (isset($params['station'])) {
-            if ($params['station'] instanceof Location) {
-                $params['station'] = $params['station']->getName();
-            }
-
-            $usedParams['station'] = $params['station'];
-        } else {
+        if (empty($params['station'])) {
             throw new InsufficientParametersException(
                 sprintf(
                     InsufficientParametersException::MESSAGE,
@@ -143,6 +137,12 @@ class StopRepository extends ApiAwareRepository
                 )
             );
         }
+
+        if ($params['station'] instanceof Location) {
+            $params['station'] = $params['station']->getName();
+        }
+
+        $usedParams['station'] = $params['station'];
 
         if (isset($params['id'])) {
             $usedParams['id'] = $params['id'];

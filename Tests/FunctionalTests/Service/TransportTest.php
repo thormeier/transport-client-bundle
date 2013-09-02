@@ -33,9 +33,10 @@ class TransportTest extends WebTestCase
      */
     public function testGetSingleLocation()
     {
-        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
+        try {
             $result = $this->transport->getLocations(array('query' => 'Lenzburg'));
         } catch (InvalidArgumentException $e) {
+            // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $this->fail($e->getMessage());
         }
 
@@ -49,9 +50,10 @@ class TransportTest extends WebTestCase
      */
     public function testGetMultipleLocations()
     {
-        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
+        try {
             $result = $this->transport->getLocations(array('query' => 'hausen'));
         } catch (InvalidArgumentException $e) {
+            // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $this->fail($e->getMessage());
         }
 
@@ -65,9 +67,10 @@ class TransportTest extends WebTestCase
      */
     public function testGetConnections()
     {
-        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
+        try {
             $result = $this->transport->getConnections(array('from' => 'Lenzburg', 'to' => 'Zürich'));
         } catch (InvalidArgumentException $e) {
+            // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $this->fail($e->getMessage());
         }
 
@@ -81,9 +84,10 @@ class TransportTest extends WebTestCase
      */
     public function testGetStationBoard()
     {
-        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
+        try {
             $result = $this->transport->getStationboard(array('station' => 'Lenzburg'));
         } catch (InvalidArgumentException $e) {
+            // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $this->fail($e->getMessage());
         }
 
