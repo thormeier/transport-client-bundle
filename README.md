@@ -17,19 +17,7 @@ This bundle provides a new `transport.client` service that returns an instance o
 
 ### Step 1: Composer require
 
-Add the Github repository to your `composer.json`:
-
-    {
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/thormeier/transport-client"
-            }
-        ],
-        "require": {
-            "thormeier/transport-client": "dev-master"
-        }
-    }
+    $ php composer.phar require "thormeier/transport-bundle":"dev-master"
 
 ### Step2: Enable the bundle in the kernel
 
