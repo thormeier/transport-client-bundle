@@ -3,6 +3,8 @@ framework:
     test:       ~
     validation: { enable_annotations: true }
 
-# Replace actual API URL with URL of local instance for functional tests
+# Replace actual Buzz Browser with instance of local mocked one that just returns fixtures
+# This is needed to omit the dependency on the external API which might be down at any given time
 parameters:
-    transportclient.api.url: "http://localhost/thormeier/opendatatransportapi/web/api.php/v1/"
+    transportclient.api.url: "http://transport.opendata.ch/v1/"
+    buzz.client.class: Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient

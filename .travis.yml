@@ -10,15 +10,8 @@ env:
   - SYMFONY_VERSION=2.3.*
   - SYMFONY_VERSION=dev-master
 
-before_install:
-  - cd ../
-  - git clone git://github.com/OpendataCH/Transport.git opendatatransportapi
-  - cd opendatatransportapi
-  - composer install
-  - cd ../transport-client
-
 before_script:
   - composer self-update
   - composer require symfony/framework-bundle:${SYMFONY_VERSION} --dev
 
-script: phpunit  --coverage-text
+script: phpunit --coverage-text

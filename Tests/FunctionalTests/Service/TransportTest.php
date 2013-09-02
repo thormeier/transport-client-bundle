@@ -33,7 +33,11 @@ class TransportTest extends WebTestCase
      */
     public function testGetSingleLocation()
     {
-        $result = $this->transport->getLocations(array('query' => 'Lenzburg'));
+        try {
+            $result = $this->transport->getLocations(array('query' => 'Lenzburg'));
+        } catch (InvalidArgumentException $e) {
+            $this->fail($e->getMessage());
+        }
 
         $this->assertInternalType('array', $result);
         $this->assertCount(1, $result);
@@ -45,9 +49,14 @@ class TransportTest extends WebTestCase
      */
     public function testGetMultipleLocations()
     {
-        $result = $this->transport->getLocations(array('query' => 'hausen'));
+        try {
+            $result = $this->transport->getLocations(array('query' => 'hausen'));
+        } catch (InvalidArgumentException $e) {
+            $this->fail($e->getMessage());
+        }
 
         $this->assertInternalType('array', $result);
+        $this->assertCount(50, $result);
         $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Location', $result);
     }
 
@@ -56,9 +65,14 @@ class TransportTest extends WebTestCase
      */
     public function testGetConnections()
     {
-        $result = $this->transport->getConnections(array('from' => 'Lenzburg', 'to' => 'Zürich'));
+        try {
+            $result = $this->transport->getConnections(array('from' => 'Lenzburg', 'to' => 'Zürich'));
+        } catch (InvalidArgumentException $e) {
+            $this->fail($e->getMessage());
+        }
 
         $this->assertInternalType('array', $result);
+        $this->assertCount(4, $result);
         $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Connection', $result);
     }
 
