@@ -33,7 +33,7 @@ class TransportTest extends WebTestCase
      */
     public function testGetSingleLocation()
     {
-        try {
+        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $result = $this->transport->getLocations(array('query' => 'Lenzburg'));
         } catch (InvalidArgumentException $e) {
             $this->fail($e->getMessage());
@@ -49,7 +49,7 @@ class TransportTest extends WebTestCase
      */
     public function testGetMultipleLocations()
     {
-        try {
+        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $result = $this->transport->getLocations(array('query' => 'hausen'));
         } catch (InvalidArgumentException $e) {
             $this->fail($e->getMessage());
@@ -65,7 +65,7 @@ class TransportTest extends WebTestCase
      */
     public function testGetConnections()
     {
-        try {
+        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
             $result = $this->transport->getConnections(array('from' => 'Lenzburg', 'to' => 'Zürich'));
         } catch (InvalidArgumentException $e) {
             $this->fail($e->getMessage());
@@ -81,7 +81,11 @@ class TransportTest extends WebTestCase
      */
     public function testGetStationBoard()
     {
-        $result = $this->transport->getStationboard(array('station' => 'Lenzburg'));
+        try { // See Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client\FixtureClient
+            $result = $this->transport->getStationboard(array('station' => 'Lenzburg'));
+        } catch (InvalidArgumentException $e) {
+            $this->fail($e->getMessage());
+        }
 
         $this->assertInternalType('array', $result);
         $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Stop', $result);
