@@ -182,8 +182,6 @@ class Transport implements TransportInterface
      */
     private function getRepositoryByApiMethod($apiMethod)
     {
-        $apiMethods = $this->getApiMethods();
-
         switch ($apiMethod) {
             case self::CONNECTION:
                 return $this->connectionRepository;

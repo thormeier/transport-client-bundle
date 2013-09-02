@@ -104,6 +104,7 @@ class LocationRepository extends ApiAwareRepository
                 )
             );
         }
+
         $usedParams['query'] = $params['query'];
 
         // Set up location parameters
