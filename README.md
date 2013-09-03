@@ -1,7 +1,7 @@
 ThormeierTransportClientBundle
 ==============================
 
-[![Build Status](https://travis-ci.org/thormeier/transport-client-bundle.png?branch=master)](https://travis-ci.org/thormeier/transport-client)
+[![Build Status](https://travis-ci.org/thormeier/transport-client-bundle.png?branch=master)](https://travis-ci.org/thormeier/transport-client-bundle)
 
 ## Introduction
 
