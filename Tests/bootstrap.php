@@ -2,7 +2,14 @@
 // Bootstrap file for functional tests
 
 $loaderPath = AutoloaderFinder::findAutoloader();
-echo "Testing with autoloader from $loaderPath".PHP_EOL.PHP_EOL;
+
+echo <<<EOM
+Testing with autoloader from
+
+    $loaderPath
+
+
+EOM;
 
 if ($loaderPath === false) {
     echo <<<EOM
