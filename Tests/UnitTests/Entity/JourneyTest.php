@@ -17,7 +17,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testName($data)
     {
@@ -32,7 +32,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testCategory($data)
     {
@@ -47,7 +47,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider numberProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testNumber($data)
     {
@@ -62,7 +62,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testOperator($data)
     {
@@ -130,7 +130,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider numberProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity1st($capacity)
     {
@@ -145,7 +145,7 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider numberProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity2nd($capacity)
     {
@@ -153,32 +153,5 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
 
         $journey->setCapacity2nd($capacity);
         $this->assertEquals($capacity, $journey->getCapacity2nd());
-    }
-
-    /**
-     * Data provider method for string method tests
-     *
-     * @return array
-     */
-    public function stringProvider()
-    {
-        return array(
-                array('foo'),
-                array(null),
-        );
-    }
-
-    /**
-     * Data provider method for number method tests
-     *
-     * @return array
-     */
-    public function numberProvider()
-    {
-        return array(
-                array(12),
-                array(-12),
-                array(null),
-        );
     }
 }

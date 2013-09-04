@@ -23,20 +23,23 @@ class JourneyRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        // Mock repositories that are to be injected into the tested one
         $locationRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\LocationRepository')
             ->setMethods(array(
-                    'setUp',
-                    'get',
+                'setUp',
+                'get',
             ))
             ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+            ->getMock();
+
         $checkpointRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\CheckpointRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+            ->getMock();
 
+        // Mock repository behaviour
         $locationRepository->expects($this->any())
             ->method('get')
             ->will($this->returnValue(array(new Location)));
@@ -45,6 +48,7 @@ class JourneyRepositoryTest extends \PHPUnit_Framework_TestCase
             ->method('setUp')
             ->will($this->returnValue(new Checkpoint));
 
+        // Set up the repository that is to be tested
         $this->journeyRepository = new JourneyRepository($checkpointRepository, $locationRepository);
     }
 

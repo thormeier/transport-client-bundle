@@ -1,5 +1,5 @@
 <?php
-namespace Thormeier\TransportClientBundle\Tests\FunctionalTests\TestUtils\Buzz\Client;
+namespace Thormeier\TransportClientBundle\Tests\TestUtils\Buzz\Client;
 
 use Buzz\Exception\InvalidArgumentException;
 

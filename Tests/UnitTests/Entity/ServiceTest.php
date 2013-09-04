@@ -15,7 +15,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider dataProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::multitypeProvider
      */
     public function testRegular($data)
     {
@@ -30,7 +30,7 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider dataProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::multitypeProvider
      */
     public function testIrregular($data)
     {
@@ -38,19 +38,5 @@ class ServiceTest extends \PHPUnit_Framework_TestCase
 
         $service->setIrregular($data);
         $this->assertEquals($data, $service->getIrregular());
-    }
-
-    /**
-     * Data provider method for all test cases
-     *
-     * @return multitype:number string NULL
-     */
-    public function dataProvider()
-    {
-        return array(
-                    array(1),
-                    array('foo'),
-                    array(null),
-                );
     }
 }

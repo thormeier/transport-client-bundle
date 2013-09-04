@@ -65,7 +65,15 @@ class ApiAwareRepositoryTest extends \PHPUnit_Framework_TestCase
                 )
             );
 
-        $this->repository = new ConcreteApiAwareRepository($browser, $serializer, $this->apiBaseUrl, $this->responseArrayKey);
+        // Get concrete implementation for abstract class to only
+        // test the inherited methods, abstract methods are tested
+        // in their respective repository test
+        $this->repository = new ConcreteApiAwareRepository(
+            $browser,
+            $serializer,
+            $this->apiBaseUrl,
+            $this->responseArrayKey
+        );
     }
 
     /**

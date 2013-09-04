@@ -39,7 +39,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testName($data)
     {
@@ -77,7 +77,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testCategory($data)
     {
@@ -92,7 +92,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider numberProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testNumber($data)
     {
@@ -107,7 +107,7 @@ class StopTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider stringProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testOperator($data)
     {
@@ -115,33 +115,5 @@ class StopTest extends \PHPUnit_Framework_TestCase
 
         $stop->setOperator($data);
         $this->assertEquals($data, $stop->getOperator());
-    }
-
-    /**
-     * Data provider method for all string methods
-     *
-     * @return array
-     */
-    public function stringProvider()
-    {
-        return array(
-                array('foo'),
-                array(null),
-        );
-    }
-
-    /**
-     * Data provider method for all methods that are testing float/negative numbers
-     *
-     * @return multitype:multitype:number  multitype:NULL
-     */
-    public function numberProvider()
-    {
-        return array(
-                array(12),
-                array(-12),
-                array(12.34),
-                array(null),
-        );
     }
 }

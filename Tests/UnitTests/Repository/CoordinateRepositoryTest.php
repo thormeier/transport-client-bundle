@@ -18,10 +18,10 @@ class CoordinateRepositoryTest extends \PHPUnit_Framework_TestCase
         $coordinateRepository = new CoordinateRepository;
 
         $data = array(
-                    'x' => 12,
-                    'y' => 13,
-                    'type' => 'foo',
-                );
+            'x' => 12,
+            'y' => 13,
+            'type' => 'foo',
+        );
 
         $result = $coordinateRepository->setUp($data);
 

@@ -5,8 +5,6 @@ use Thormeier\TransportClientBundle\Model\Checkpoint;
 use Thormeier\TransportClientBundle\Model\Location;
 use Thormeier\TransportClientBundle\Model\Prognosis;
 
-use Buzz\Browser;
-
 /**
  * Unit test for the checkpoint entity class
  *
@@ -88,7 +86,7 @@ class CheckpointTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $delay
      *
-     * @dataProvider integerProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testDelay($delay)
     {
@@ -103,7 +101,7 @@ class CheckpointTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $platform
      *
-     * @dataProvider platformProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::multitypeProvider
      */
     public function testPlatform($platform)
     {
@@ -134,34 +132,5 @@ class CheckpointTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $checkpoint->setPrognosis('foo');
-    }
-
-    /**
-     * Data provider method for platforms
-     *
-     * @return array
-     */
-    public function platformProvider()
-    {
-        return array(
-            array(1),
-            array(2),
-            array('foo'),
-            array('bar'),
-        );
-    }
-
-    /**
-     * Data provider method for delay
-     *
-     * @return array
-     */
-    public function integerProvider()
-    {
-        return array(
-            array(1),
-            array(12),
-            array(null),
-        );
     }
 }

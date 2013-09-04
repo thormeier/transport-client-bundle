@@ -15,7 +15,7 @@ class PrognosisTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider platformProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::multitypeProvider
      */
     public function testPlatform($data)
     {
@@ -72,7 +72,7 @@ class PrognosisTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider capacityProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity1st($capacity)
     {
@@ -87,7 +87,7 @@ class PrognosisTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider capacityProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity2nd($capacity)
     {
@@ -95,34 +95,5 @@ class PrognosisTest extends \PHPUnit_Framework_TestCase
 
         $prognosis->setCapacity2nd($capacity);
         $this->assertEquals($capacity, $prognosis->getCapacity2nd());
-    }
-
-    /**
-     * Data provider method for platform
-     *
-     * @return array
-     */
-    public function platformProvider()
-    {
-        return array(
-                    array(1),
-                    array('1'),
-                    array('Foo'),
-                    array(null),
-                );
-    }
-
-    /**
-     * Data provider method for both capacity tests
-     *
-     * @return array
-     */
-    public function capacityProvider()
-    {
-        return array(
-                array(1),
-                array(2),
-                array(-1),
-        );
     }
 }

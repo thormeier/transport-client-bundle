@@ -20,6 +20,7 @@ class TransportTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        // Mock repistories that are injected into the service class
         $connectionRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\ConnectionRepository')
             ->disableOriginalConstructor()
             ->getMock();
@@ -32,6 +33,7 @@ class TransportTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        // Set up service class
         $this->service = new Transport($connectionRepository, $locationRepository, $stopRepository);
     }
 

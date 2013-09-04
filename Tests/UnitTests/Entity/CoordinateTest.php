@@ -15,7 +15,7 @@ class CoordinateTest extends \PHPUnit_Framework_TestCase
      *
      * @param float $data
      *
-     * @dataProvider axisProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testX($data)
     {
@@ -30,7 +30,7 @@ class CoordinateTest extends \PHPUnit_Framework_TestCase
      *
      * @param float $data
      *
-     * @dataProvider axisProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testY($data)
     {
@@ -45,7 +45,7 @@ class CoordinateTest extends \PHPUnit_Framework_TestCase
      *
      * @param string $data
      *
-     * @dataProvider typeProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::stringProvider
      */
     public function testType($data)
     {
@@ -53,34 +53,5 @@ class CoordinateTest extends \PHPUnit_Framework_TestCase
 
         $coordinate->setType($data);
         $this->assertEquals($data, $coordinate->getType());
-    }
-
-    /**
-     * Data provider method for both latitude and longitude
-     *
-     * @return array
-     */
-    public function axisProvider()
-    {
-        return array(
-                    array(1),
-                    array(1836465),
-                    array(1122.2233),
-                    array(null),
-                );
-    }
-
-    /**
-     * Data provider method for type
-     *
-     * @return array
-     */
-    public function typeProvider()
-    {
-        return array(
-                    array('foo'),
-                    array('bar'),
-                    array(null),
-                );
     }
 }

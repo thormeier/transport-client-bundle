@@ -167,7 +167,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider capacityProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity1st($capacity)
     {
@@ -182,7 +182,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
      *
      * @param integer $capacity
      *
-     * @dataProvider capacityProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testCapacity2nd($capacity)
     {
@@ -190,20 +190,6 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
         $connection->setCapacity2nd($capacity);
         $this->assertEquals($capacity, $connection->getCapacity2nd());
-    }
-
-    /**
-     * Data provider method for both capacity tests
-     *
-     * @return array
-     */
-    public function capacityProvider()
-    {
-        return array(
-                    array(1),
-                    array(2),
-                    array(-1),
-                );
     }
 }
 

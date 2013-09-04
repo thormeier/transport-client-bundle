@@ -29,12 +29,12 @@ class PrognosisRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testSetUp()
     {
         $data = array(
-                    'arrival' => '2013-01-01 17:00:00',
-                    'capacity1st' => 1,
-                    'capacity2nd' => 2,
-                    'departure' => '2013-01-01 17:30:00',
-                    'platform' => 13,
-                );
+            'arrival' => '2013-01-01 17:00:00',
+            'capacity1st' => 1,
+            'capacity2nd' => 2,
+            'departure' => '2013-01-01 17:30:00',
+            'platform' => 13,
+        );
 
         $result = $this->prognosisRepository->setUp($data);
 

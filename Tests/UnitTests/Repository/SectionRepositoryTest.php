@@ -23,28 +23,31 @@ class SectionRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        // Mock repositories that are to be injected into the tested one
         $journeyRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\JourneyRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
-
-        $journeyRepository->expects($this->any())
-            ->method('setUp')
-            ->will($this->returnValue(new Journey));
 
         $checkpointRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\CheckpointRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
+
+        // Mock repository behaviour
+        $journeyRepository->expects($this->any())
+            ->method('setUp')
+            ->will($this->returnValue(new Journey));
 
         $checkpointRepository->expects($this->any())
             ->method('setUp')
             ->will($this->returnValue(new Checkpoint));
 
+        // Set up repository that is to be tested
         $this->sectionRepository = new SectionRepository($checkpointRepository, $journeyRepository);
     }
 

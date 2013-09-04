@@ -43,27 +43,29 @@ class ConnectionRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        // Mock repositories that are to be injected into the tested one
         $checkpointRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\CheckpointRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+            ->getMock();
 
         $serviceRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\ServiceRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+            ->getMock();
 
         $sectionRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\SectionRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
-            ->getMockForAbstractClass();
+            ->getMock();
 
+        // Mock repository behaviour
         $checkpointRepository->expects($this->any())
             ->method('setUp')
             ->will($this->returnValue(new Checkpoint));
@@ -76,6 +78,7 @@ class ConnectionRepositoryTest extends \PHPUnit_Framework_TestCase
             ->method('setUp')
             ->will($this->returnValue(new Service));
 
+        // Mock dependencies: browser and serializer
         $browser = $this->getMockBuilder('Buzz\Browser')
             ->disableOriginalConstructor()
             ->getMock();
@@ -84,7 +87,9 @@ class ConnectionRepositoryTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        // Set up repository that is to be tested
         $this->connectionRepository = new ConnectionRepository($browser, $serializer, 'http://www.example.com', 'foo');
+
         $this->connectionRepository->setCheckpointRepository($checkpointRepository)
             ->setSectionRepository($sectionRepository)
             ->setServiceRepository($serviceRepository);

@@ -39,7 +39,7 @@ class SectionTest extends \PHPUnit_Framework_TestCase
      *
      * @param unknown $data
      *
-     * @dataProvider walkProvider
+     * @dataProvider Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider\DataProvider::numberProvider
      */
     public function testWalk($data)
     {
@@ -91,19 +91,5 @@ class SectionTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException('\PHPUnit_Framework_Error');
         $section->setArrival('foo');
-    }
-
-    /**
-     * Data provier method for walk test
-     *
-     * @return array
-     */
-    public function walkProvider()
-    {
-        return array(
-                    array(1),
-                    array(-1),
-                    array(null),
-                );
     }
 }

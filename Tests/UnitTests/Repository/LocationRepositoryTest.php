@@ -22,17 +22,10 @@ class LocationRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $browser = $this->getMockBuilder('Buzz\Browser')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $serializer = $this->getMockBuilder('JMS\Serializer\Serializer')
-            ->disableOriginalConstructor()
-            ->getMock();
-
+        // Mock the coordinate repository and its behaviour that is injected into the tested repository
         $coordinateRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\CoordinateRepository')
             ->setMethods(array(
-                    'setUp',
+                'setUp',
             ))
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
@@ -41,6 +34,16 @@ class LocationRepositoryTest extends \PHPUnit_Framework_TestCase
             ->method('setUp')
             ->will($this->returnValue(new Coordinate));
 
+        // Mock dependencies: browser and serializer
+        $browser = $this->getMockBuilder('Buzz\Browser')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $serializer = $this->getMockBuilder('JMS\Serializer\Serializer')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Set up repository that is to be tested
         $this->locationRepository = new LocationRepository($browser, $serializer, 'http://www.example.com', 'foo');
         $this->locationRepository->setCoordinateRepository($coordinateRepository);
     }

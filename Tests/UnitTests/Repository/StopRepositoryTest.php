@@ -22,6 +22,7 @@ class StopRepositoryTest extends \PHPUnit_FrameWork_TestCase
      */
     public function setUp()
     {
+        // Mock location repository and its behaviour that is to be injected into the tested one
         $locationRepository = $this->getMockBuilder('Thormeier\TransportClientBundle\Repository\LocationRepository')
             ->setMethods(array(
                     'get',
@@ -38,6 +39,7 @@ class StopRepositoryTest extends \PHPUnit_FrameWork_TestCase
             ->method('setUp')
             ->will($this->returnValue(new Location));
 
+        // Mock dependencies: browser and serializer
         $browser = $this->getMockBuilder('Buzz\Browser')
             ->disableOriginalConstructor()
             ->getMock();
@@ -46,6 +48,7 @@ class StopRepositoryTest extends \PHPUnit_FrameWork_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        // Set up repository that is to be tested
         $this->stopRepository = new StopRepository($browser, $serializer, 'http://www.example.com', 'foo');
         $this->stopRepository->setLocationRepository($locationRepository);
     }
