@@ -2,14 +2,14 @@
 namespace Thormeier\TransportClientBundle\Tests\TestUtils\DataProvider;
 
 /**
- * Collection of data provider methods concerning numbers
+ * Collection of data provider methods
  *
  * @author Pascal Thormeier <pascal.thormeier@gmail.com>
  */
 class DataProvider
 {
     /**
-     * Returns a set of numbers, null and string
+     * Data provider method for all methods conecerning numbers
      *
      * @return array
      */
@@ -49,6 +49,7 @@ class DataProvider
                 array(2),
                 array('foo'),
                 array('bar'),
+                array(null),
         );
     }
 }

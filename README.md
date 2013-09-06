@@ -21,10 +21,9 @@ This bundle provides a new `transport.client` service that returns an instance o
 
 ### Step2: Enable the bundle in the kernel
 
-
     <?php
     // app/AppKernel.php
-
+    
     public function registerBundles()
     {
         $bundles = array(

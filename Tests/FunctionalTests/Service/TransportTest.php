@@ -6,8 +6,9 @@ use Thormeier\TransportClientBundle\Service\Transport;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Functional tests of the Transport class that actually calls
- * the API and tests if the returned results are legal entities
+ * Functional tests of the Transport class that calls a mocked
+ * API via a replaced Buzz Client, which returns a set of fixtures
+ * in JSON format.
  *
  * @author Pascal Thormeier <pascal.thormeier@gmail.com>
  */
@@ -20,6 +21,8 @@ class TransportTest extends WebTestCase
 
     /**
      * Set up a kernel and get the transport client service to test it
+     *
+     * This also tests the correct service definition
      */
     public function setUp()
     {
@@ -92,6 +95,7 @@ class TransportTest extends WebTestCase
         }
 
         $this->assertInternalType('array', $result);
+        $this->assertCount(40, $result);
         $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Stop', $result);
     }
 }
