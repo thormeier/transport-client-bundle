@@ -150,7 +150,10 @@ class Transport implements TransportInterface
 
         if (null === $repository || false === ($repository instanceof ApiAwareRepository)) {
             throw new RepositoryNotFoundException(
-                sprintf('Transport API Method "%s" does not have a repository or is not configured to call the API', $apiMethod)
+                sprintf(
+                    RepositoryNotFoundException::MESSAGE,
+                    $apiMethod
+                )
             );
         }
 
@@ -168,7 +171,10 @@ class Transport implements TransportInterface
     {
         if (!in_array($apiMethod, array_keys($this->getApiMethods()))) {
             throw new UnknownApiMethodException(
-                sprintf('Transport API Method %s does not exist', $apiMethod)
+                sprintf(
+                    UnknownApiMethodException::MESSAGE,
+                    $apiMethod
+                )
             );
         }
     }

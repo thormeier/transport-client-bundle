@@ -6,4 +6,5 @@ namespace Thormeier\TransportClientBundle\Exception;
  */
 class UnknownApiMethodException extends \RuntimeException
 {
+    const MESSAGE = 'Transport API Method %s does not exist';
 }

@@ -27,7 +27,7 @@ abstract class Repository implements RepositoryInterface
         if (count(array_diff($neededKeys, $presentKeys)) > 0) {
             throw new InvalidDataException(
                 sprintf(
-                    'Incorrupt data given for the method setUp: Missing keys "%s" in %s',
+                    InvalidDataException::MESSAGE,
                     implode('", "', $missingKeys),
                     get_called_class()
                 )

@@ -6,4 +6,5 @@ namespace Thormeier\TransportClientBundle\Exception;
  */
 class InvalidDataException extends \OutOfBoundsException
 {
+    const MESSAGE = 'Incorrupt data given for the method setUp: Missing keys "%s" in %s';
 }

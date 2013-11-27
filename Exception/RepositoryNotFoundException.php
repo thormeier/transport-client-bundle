@@ -6,4 +6,5 @@ namespace Thormeier\TransportClientBundle\Exception;
  */
 class RepositoryNotFoundException extends \InvalidArgumentException
 {
+    const MESSAGE = 'Transport API Method "%s" does not have a repository or is not configured to call the API';
 }
