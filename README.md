@@ -17,7 +17,7 @@ This bundle provides a new `transport.client` service that returns an instance o
 
 ### Step 1: Composer require
 
-    $ php composer.phar require "thormeier/transport-bundle":"1.0.1"
+    $ php composer.phar require "thormeier/transport-bundle":"1.0.*"
 
 ### Step2: Enable the bundle in the kernel
 
