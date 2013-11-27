@@ -4,7 +4,10 @@ namespace Thormeier\TransportClientBundle\Repository;
 use Thormeier\TransportClientBundle\Exception\InsufficientParametersException;
 
 use Buzz\Browser;
+use Buzz\Message\MessageInterface;
+
 use JMS\Serializer\Serializer;
+use Thormeier\TransportClientBundle\Exception\ApiErrorException;
 
 /**
  * Abstract repository class that allows repositories to query the API
@@ -74,9 +77,14 @@ abstract class ApiAwareRepository extends Repository implements ApiAwareReposito
         $params = $this->sanatizeParameters($params);
 
         $url = $this->buildUrl($params);
-        $responseJson = $this->browser->get($url)->getContent();
 
-        $responseArray = $this->serializer->deserialize($responseJson, 'array', 'json');
+        $response = $this->browser->get($url);
+
+        // Catch API errors and throw Exception
+        $this->checkApiErrors($response, $url);
+
+        // No error, proceed to parse the returned JSON and set up all entities
+        $responseArray = $this->serializer->deserialize($response->getContent(), 'array', 'json');
 
         $entities = array();
         foreach ($responseArray[$this->reponseArrayKey] as $entityData) {
@@ -124,4 +132,25 @@ abstract class ApiAwareRepository extends Repository implements ApiAwareReposito
      * @return array
      */
     abstract public function sanatizeParameters(array $params);
+
+    /**
+     * Catches any API errors and throws an Exception for them
+     *
+     * @param MessageInterface $response
+     * @param string           $url
+     *
+     * @throws ApiErrorException
+     */
+    protected function checkApiErrors(MessageInterface $response, $url)
+    {
+        if (false === $response->isSuccessful()) {
+            throw new ApiErrorException(
+                sprintf(
+                    ApiErrorException::MESSAGE,
+                    $response->getStatusCode(),
+                    $url
+                )
+            );
+        }
+    }
 }

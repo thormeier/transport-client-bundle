@@ -18,6 +18,13 @@ use Buzz\Message\RequestInterface;
 class FixtureClient implements ClientInterface
 {
     /**
+     * String that is needed to be in GET parameter "query" to trigger a mocked API error
+     *
+     * @var string
+     */
+    const ERROR_TRIGGER_QUERY = 'This throws an error because the API is not available';
+
+    /**
      * Populates the supplied response with the response for the supplied request.
      *
      * @param RequestInterface $request  A request object
@@ -27,6 +34,16 @@ class FixtureClient implements ClientInterface
     {
         $resource = $request->getResource();
         $queryParts = parse_url($resource);
+
+        // Return an error if needed
+        if ($this->isErrorTriggeringRequest($queryParts['query'])) {
+            $response->setHeaders(array(' 500 Test API error'));
+
+            return;
+        }
+
+        // Set response header to 200, so there's no Exception thrown
+        $response->setHeaders(array(' 200 OK'));
 
         $fileName = $this->getFixtureFilename($queryParts['path'], $queryParts['query']);
 
@@ -108,5 +125,11 @@ class FixtureClient implements ClientInterface
         }
 
         return $fileName;
+    }
+
+
+    private function isErrorTriggeringRequest($query)
+    {
+        return strpos($query, urlencode(self::ERROR_TRIGGER_QUERY)) !== false;
     }
 }

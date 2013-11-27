@@ -7,6 +7,7 @@ use Thormeier\TransportClientBundle\Model\Stop;
 use Thormeier\TransportClientBundle\Repository\LocationRepository;
 
 use Thormeier\TransportClientBundle\Exception\InsufficientParametersException;
+use Thormeier\TransportClientBundle\Exception\ApiErrorException;
 
 /**
  * Stop repository class
@@ -74,9 +75,12 @@ class StopRepository extends ApiAwareRepository
         $params = $this->sanatizeParameters($params);
 
         $url = $this->buildUrl($params);
-        $responseJson = $this->browser->get($url)->getContent();
+        $response = $this->browser->get($url);
 
-        $responseArray = $this->serializer->deserialize($responseJson, 'array', 'json');
+        // Catch API errors and throw Exception
+        $this->checkApiErrors($response, $url);
+
+        $responseArray = $this->serializer->deserialize($response->getContent(), 'array', 'json');
 
         $entities = array();
         foreach ($responseArray[$this->reponseArrayKey] as $entityData) {

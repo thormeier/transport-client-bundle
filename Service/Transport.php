@@ -148,7 +148,7 @@ class Transport implements TransportInterface
 
         $repository = $this->getRepositoryByApiMethod($apiMethod);
 
-        if ($repository === null || !($repository instanceof ApiAwareRepository)) {
+        if (null === $repository || false === ($repository instanceof ApiAwareRepository)) {
             throw new RepositoryNotFoundException(
                 sprintf('Transport API Method "%s" does not have a repository or is not configured to call the API', $apiMethod)
             );

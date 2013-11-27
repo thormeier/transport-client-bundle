@@ -2,6 +2,7 @@
 namespace Thormeier\TransportClientBundle\Tests\FunctionalTests\Service;
 
 use Thormeier\TransportClientBundle\Service\Transport;
+use Thormeier\TransportClientBundle\Tests\TestUtils\Buzz\Client\FixtureClient;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -97,5 +98,15 @@ class TransportTest extends WebTestCase
         $this->assertInternalType('array', $result);
         $this->assertCount(40, $result);
         $this->assertContainsOnly('Thormeier\TransportClientBundle\Model\Stop', $result);
+    }
+
+    /**
+     * Test throwing of exception
+     */
+    public function testGetApiException()
+    {
+        $this->setExpectedException('Thormeier\TransportClientBundle\Exception\ApiErrorException');
+
+        $result = $this->transport->getStationboard(array('station' => FixtureClient::ERROR_TRIGGER_QUERY));
     }
 }

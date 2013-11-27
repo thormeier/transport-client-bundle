@@ -2,6 +2,7 @@
 namespace Thormeier\TransportClientBundle\Tests\UnitTests\Service;
 
 use Thormeier\TransportClientBundle\Service\Transport;
+use Thormeier\TransportClientBundle\Repository\CoordinateRepository;
 
 /**
  * Unit test for the service class
@@ -56,5 +57,48 @@ class TransportTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('Thormeier\TransportClientBundle\Exception\UnknownApiMethodException');
 
         $this->service->get('foo', array());
+    }
+
+    /**
+     * Test throwing of exception on invalid repository by mocking a single method
+     */
+    public function testInvalidRepository()
+    {
+        // Mock a single method of the service to test another one
+        $service = $this->getMockBuilder('Thormeier\TransportClientBundle\Service\Transport')
+            ->setMethods(array('getRepositoryByApiMethod'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        // Return a repository that does not implement the ApiAwareRepository
+        $service->expects($this->any())
+            ->method('getRepositoryByApiMethod')
+            ->will($this->returnValue(new CoordinateRepository()));
+
+        $this->setExpectedException('Thormeier\TransportClientBundle\Exception\RepositoryNotFoundException');
+
+        $service->get(Transport::CONNECTION, array());
+    }
+
+    /**
+     * Test throwing of exception on non-existant repository by mocking a single method
+     */
+    public function testNonpresentRepository()
+    {
+        $nonexistantMethod = 'foo';
+
+        // Mock a single method of the service to test another one
+        $service = $this->getMockBuilder('Thormeier\TransportClientBundle\Service\Transport')
+            ->setMethods(array('getApiMethods'))
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $service->expects($this->any())
+            ->method('getApiMethods')
+            ->will($this->returnValue(array($nonexistantMethod)));
+
+        $this->setExpectedException('Thormeier\TransportClientBundle\Exception\RepositoryNotFoundException');
+
+        $service->get($nonexistantMethod, array());
     }
 }

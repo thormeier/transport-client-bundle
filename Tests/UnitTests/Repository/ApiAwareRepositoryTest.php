@@ -33,21 +33,31 @@ class ApiAwareRepositoryTest extends \PHPUnit_Framework_TestCase
     private $responseArrayKey = 'foo';
 
     /**
+     * Mocked Buzz Response
+     *
+     * @var Buzz\Message\Response
+     */
+    private $response;
+
+    /**
      * Mock the browser and the serializer and set up an instance of the concrete ApiAwareRepository class
      */
     public function setUp()
     {
-        $response = $this->getMockForAbstractClass('Buzz\Message\MessageInterface');
+        $response = $this->getMockBuilder('Buzz\Message\Response')
+            ->disableOriginalConstructor()
+            ->getMock();
         $response->expects($this->any())
             ->method('getContent')
             ->will($this->returnValue('foobar'));
+        $this->response = $response;
 
         $browser = $this->getMockBuilder('Buzz\Browser')
             ->disableOriginalConstructor()
             ->getMock();
         $browser->expects($this->any())
             ->method('get')
-            ->will($this->returnValue($response));
+            ->will($this->returnValue($this->response));
 
         $serializer = $this->getMockBuilder('JMS\Serializer\Serializer')
             ->disableOriginalConstructor()
@@ -106,13 +116,83 @@ class ApiAwareRepositoryTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test getting of entities
+     *
+     * @param number $statuscode
+     *
+     * @dataProvider successStatuscodeProvider
      */
-    public function testGet()
+    public function testGetSuccess($statuscode)
     {
+        $this->setReturnedStatuscode($statuscode);
+
         $result = $this->repository->get(array());
 
         $this->assertInternalType('array', $result);
         $this->assertCount(2, $result);
         $this->assertContainsOnly('\stdClass', $result);
+    }
+
+    /**
+     * Test throwing of exception during
+     *
+     * @param number $statuscode
+     *
+     * @dataProvider errorStatuscodeProvider
+     */
+    public function testGetError($statuscode)
+    {
+        $this->setReturnedStatuscode($statuscode);
+
+        $this->setExpectedException('Thormeier\TransportClientBundle\Exception\ApiErrorException');
+
+        $result = $this->repository->get(array());
+    }
+
+    /**
+     * Data Provider method for successful status codes
+     *
+     * @return array
+     */
+    public function successStatuscodeProvider()
+    {
+        return array(
+            array(200),
+            array(203),
+            array(204),
+        );
+    }
+
+    /**
+     * Data Provider method for error status codes
+     *
+     * @return array
+     */
+    public function errorStatuscodeProvider()
+    {
+        // non-successful status codes according to Buzz implementation
+        return array(
+            array(301),
+            array(302),
+            array(400),
+            array(403),
+            array(404),
+            array(500),
+        );
+    }
+
+    /**
+     * Sets the returnd thatus code of the response to the given one
+     *
+     * @param number $statuscode
+     */
+    private function setReturnedStatuscode($statuscode)
+    {
+        $this->response->expects($this->any())
+            ->method('isSuccessful')
+            ->will($this->returnValue(($statuscode >= 200 && $statuscode < 300)));
+
+        $this->response->expects($this->any())
+            ->method('getStatusCode')
+            ->will($this->returnValue($statuscode));
     }
 }
